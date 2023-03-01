@@ -1,9 +1,12 @@
-import Banner from './Banner/Banner'
-
-
+import Banner from "./Banner/Banner";
+import ProductGrid from "./ProductGrid/ProductGrid";
 const Home = () => {
-
-  return <Banner />;
+  return (
+    <>
+      <Banner />
+      <ProductGrid />
+    </>
+  );
 };
 
 export default Home;
