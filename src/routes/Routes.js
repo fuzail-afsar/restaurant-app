@@ -39,11 +39,6 @@ const Routes = () => {
       element: <Layout children={<Outlet />} />,
       children: [{ index: true, element: <Account /> }],
     },
-    {
-      path: '/home',
-      element: <Layout children={<Outlet />} />,
-      children: [{index:true, element: <Home />}],
-    },
   ];
   return useRoutes(routes);
 };
