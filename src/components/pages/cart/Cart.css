@@ -4,7 +4,7 @@
 
 .checkout > .checkout__header {
   position: relative;
-  background-image: url('./img/bg.jpg');
+  background-image: url('../../../assets//img/cartBg.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
