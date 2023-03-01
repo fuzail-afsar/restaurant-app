@@ -1,8 +1,8 @@
-.checkout {
+.cart {
   box-sizing: border-box;
 }
 
-.checkout > .checkout__header {
+.cart > .cart__header {
   position: relative;
   background-image: url('../../../assets//img/cartBg.jpg');
   background-repeat: no-repeat;
@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.checkout > .checkout__header::before {
+.cart > .cart__header::before {
   content: '';
   position: absolute;
   top: 0;
@@ -25,7 +25,7 @@
   opacity: 0.4;
 }
 
-.checkout__header > h2 {
+.cart__header > h2 {
   position: relative;
   z-index: 1;
   color: #fff;
@@ -34,7 +34,7 @@
   letter-spacing: 0.4px;
 }
 
-.checkout__main {
+.cart__main {
   padding: 3rem 4rem;
 }
 

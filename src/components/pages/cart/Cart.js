@@ -58,14 +58,14 @@ const PRODUCTS = [
   },
 ];
 
-const Checkout = () => {
+const Cart = () => {
   return (
-    <div className='checkout'>
-      <div className='checkout__header'>
+    <div className='cart'>
+      <div className='cart__header'>
         <h2>Your Shopping Cart</h2>
       </div>
 
-      <section className='checkout__main'>
+      <section className='cart__main'>
         <TitleBar />
 
         <div className='products'>
@@ -90,7 +90,7 @@ const Checkout = () => {
               Subtotal <span>$930.00</span>
             </h4>
 
-            <p>Taxes and shipping calculated at checkout</p>
+            <p>Taxes and shipping calculated at cart</p>
 
             <Button type='primary' className='primary-btn'>
               Check Out
@@ -102,4 +102,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Cart;
