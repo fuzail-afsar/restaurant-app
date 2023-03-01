@@ -1,5 +1,6 @@
+import ProductGrid from "./ProductGrid/ProductGrid";
 const Home = () => {
-  return <h1>Home</h1>;
+  return <ProductGrid />;
 };
 
 export default Home;

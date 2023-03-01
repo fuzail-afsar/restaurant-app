@@ -18,13 +18,15 @@
 }
 
 .product-image {
-    border-radius: 15px;
     height: 200px;
     width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('https://cdn.shopify.com/s/files/1/0673/4269/6736/products/21_996x.jpg?v=1667814157');
+    object-fit: fill;
+}
+
+.product-image>img {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
 }
 
 .product-text {
@@ -47,6 +49,12 @@
     -webkit-box-orient: vertical;
     color: #222222;
     margin: .5rem 0;
+    transition: all .2s;
+
+}
+
+.p-des:hover {
+    color: #c00a27;
 
 }
 
@@ -85,6 +93,10 @@
 .icon-list {
     position: absolute;
     top: 19px;
+    display: none;
+    transition: all .5s;
+
+
 }
 
 .icon {
@@ -104,8 +116,10 @@
 
 }
 
-/* .main:hover{
-    .=p-price{
-        display: none;;
-    }
-} */
+.main:hover .p-percent {
+    display: none;
+}
+
+.main:hover .icon-list {
+    display: block;
+}

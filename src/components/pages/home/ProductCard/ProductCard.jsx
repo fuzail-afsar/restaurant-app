@@ -1,14 +1,19 @@
-import { heartIcon, eyeIcon, shoppingCart } from "../../../../assets/svgs";
+import heartIcon from "../../../../assets/svgs/heart.svg";
+import shoppingCart from "../../../../assets/svgs/shopping-cart.svg";
+import eyeIcon from "../../../../assets/svgs/eye.svg";
+
 import "./ProductCard.css";
 
-function ProductCard() {
+function ProductCard({ imageUrl, price, toppings }) {
   return (
     <div className="main">
-      <div className="product-image"></div>
+      <div className="product-image">
+        <img src={imageUrl} alt="product-image" />
+      </div>
       <div className="product-text">
         <span className="p-starts"></span>
-        <p className="p-des">French Fries Hamburger Fast Food</p>
-        <p className="p-price">$370.00</p>
+        <p className="p-des">{toppings}</p>
+        <p className="p-price">${price}</p>
         <span className="p-percent">-5%</span>
         <div className="icon-list">
           <div className="icon">

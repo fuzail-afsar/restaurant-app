@@ -6,14 +6,13 @@ import SignUp from "../components/pages/auth/signup/SignUp";
 import Cart from "../components/pages/cart/Cart";
 import Checkout from "../components/pages/checkout/Checkout";
 import Home from "../components/pages/home/Home";
-import ProductCard from "../components/pages/home/ProductCard/ProductCard";
 
 const Routes = () => {
   const routes = [
     {
       path: "/",
       element: <Layout children={<Outlet />} />,
-      children: [{ index: true, element: <ProductCard /> }],
+      children: [{ index: true, element: <Home /> }],
     },
     {
       path: "/signin",
