@@ -1,6 +1,6 @@
-import heartIcon from "../../../../assets/svgs/heart.svg";
-import shoppingCart from "../../../../assets/svgs/shopping-cart.svg";
-import eyeIcon from "../../../../assets/svgs/eye.svg";
+import heartIcon from "../../../../assets/images/heart.svg";
+import shoppingCart from "../../../../assets/images/shopping-cart.svg";
+import eyeIcon from "../../../../assets/images/eye.svg";
 
 import "./ProductCard.css";
 
@@ -8,7 +8,7 @@ function ProductCard({ imageUrl, price, toppings }) {
   return (
     <div className="main">
       <div className="product-image">
-        <img src={imageUrl} alt="product-image" />
+        <img src={imageUrl} alt={toppings} />
       </div>
       <div className="product-text">
         <span className="p-starts"></span>
