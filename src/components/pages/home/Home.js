@@ -1,6 +1,6 @@
-import ProductGrid from "./ProductGrid/ProductGrid";
+import {SubsectionBanner} from '../home/SubsectionBanner/SubsectionBanner'
 const Home = () => {
-  return <ProductGrid />;
+  return <SubsectionBanner/>;
 };
 
 export default Home;

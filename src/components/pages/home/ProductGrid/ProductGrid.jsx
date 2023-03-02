@@ -58,13 +58,11 @@ const ProductGrid = () => {
     <div className="product-grid-main-container">
       <div className="product-grid-head">
         <button>Filter And Sort</button>
-        <div className="product-grid-head-left">
-          <p>{PRODUCTS.length} Products</p>
-        </div>
+        <p>{PRODUCTS?.length} Products</p>
       </div>
 
       <div className="product-grid-body">
-        {PRODUCTS.map((items, index) => {
+        {PRODUCTS?.map((items, index) => {
           return <ProductCard key={index} {...items} />;
         })}
       </div>
