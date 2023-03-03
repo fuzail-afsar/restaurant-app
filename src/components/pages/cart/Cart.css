@@ -90,9 +90,33 @@
 }
 
 .primary-btn {
+  
   background-color: #c10a28;
 }
 
 .primary-btn:hover {
   background-color: #f52b4d !important;
+}
+.primary-btn2 {
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 10px;
+  background-color: #c10a28;
+}
+.signin {
+border: 1px solid rgba(191, 189, 189, 0.5);
+padding: 50px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.signin_child {
+  margin-top: 10px;
+}
+
+.signin>input {
+  width: 300px
 }
