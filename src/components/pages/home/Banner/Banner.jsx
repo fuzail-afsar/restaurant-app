@@ -1,23 +1,40 @@
-import './Banner.css'
-import { Carousel } from 'antd';
+import "./Banner.css";
+import { Button, Carousel } from "antd";
+import Container from "../../../common/container/Container";
 
 const Banner = () => (
-    <Carousel autoplay>
-        <div className='bannerDiv1'>
-            <div>
-                <h1 className='foodTitle'>PIZZA</h1>
-                <h1 className='foodDetails'>Crispy Mixed Pizza<br /> With Olives</h1>
-            </div>
-            <button className='btn'>Shop Now</button>
-        </div>
-        <div className='bannerDiv2'>
-            <div>
-                <h1 className='foodTitle'>BURGER</h1>
-                <h1 className='foodDetails'>Crispy Veg Double<br /> Patty Burger</h1>
-            </div>
-            <button className='btn'>Shop Now</button>
-        </div>
+  <section>
+    <Carousel>
+      <div className="banner banner-slide-1">
+        <Container>
+          <div className="content">
+            <h5 className="food-title">PIZZA</h5>
+            <h1 className="food-detail">
+              Crispy Mixed Pizza
+              <br /> With Olives
+            </h1>
+          </div>
+          <Button type="primary" size="large">
+            Shop Now
+          </Button>
+        </Container>
+      </div>
+      <div className="banner banner-slide-2">
+        <Container>
+          <div className="content">
+            <h5 className="food-title">BURGER</h5>
+            <h1 className="food-detail">
+              Crispy Veg Double
+              <br /> Patty Burger
+            </h1>
+          </div>
+          <Button type="primary" size="large">
+            Shop Now
+          </Button>
+        </Container>
+      </div>
     </Carousel>
+  </section>
 );
 
-export default Banner
+export default Banner;

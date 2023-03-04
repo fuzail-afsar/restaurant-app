@@ -1,5 +1,5 @@
 import { Anchor, Button, Input } from "antd";
-import "./Signin.css";
+import "./SignIn.css";
 const SignIn = () => {
   return (
     <>
