@@ -1,5 +1,7 @@
 import "./ProductGrid.css";
-import ProductCard from "../ProductCard/ProductCard";
+import { Col, Row, Typography } from "antd";
+import Container from "../../../common/container/Container";
+import ProductCard from "./ProductCard";
 const PRODUCTS = [
   {
     id: 1,
@@ -54,21 +56,24 @@ const PRODUCTS = [
 ];
 
 const ProductGrid = () => {
+  const { Title } = Typography;
   return (
-    <div className="product-grid-main-container">
-      <div className="product-grid-head">
-        <button>Filter And Sort</button>
-        <div className="product-grid-head-left">
-          <p>{PRODUCTS.length} Products</p>
-        </div>
-      </div>
-
-      <div className="product-grid-body">
-        {PRODUCTS.map((items, index) => {
-          return <ProductCard key={index} {...items} />;
-        })}
-      </div>
-    </div>
+    <Container>
+      <Row>
+        <Col span={24}>
+          <Title level={2}>Products</Title>
+        </Col>
+        <Col span={24}>
+          <Row gutter={20}>
+            {PRODUCTS.map((items) => (
+              <Col span={6}>
+                <ProductCard key={items.id} {...items} />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

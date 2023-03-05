@@ -14,11 +14,12 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 40px 0 90px;
+  padding: 90px 0 70px;
 }
 
 .content {
   color: white;
+  margin-bottom: 30px;
 }
 .food-title {
   font-size: 30px;

@@ -1,8 +1,4 @@
-.cart {
-  box-sizing: border-box;
-}
-
-.cart > .cart__header {
+.cart__header {
   position: relative;
   background-image: url("../../../assets/images/cartBg.jpg");
   background-repeat: no-repeat;
@@ -14,7 +10,7 @@
   align-items: center;
 }
 
-.cart > .cart__header::before {
+.cart__header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -35,7 +31,7 @@
 }
 
 .cart__main {
-  padding: 3rem 4rem;
+  padding: 3rem 0;
 }
 
 .actions {
