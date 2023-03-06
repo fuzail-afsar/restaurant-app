@@ -66,7 +66,7 @@ const ProductGrid = () => {
         <Col span={24}>
           <Row gutter={20}>
             {PRODUCTS.map((items) => (
-              <Col span={6}>
+              <Col xs={24} sm={12} md={8} lg={6}>
                 <ProductCard key={items.id} {...items} />
               </Col>
             ))}

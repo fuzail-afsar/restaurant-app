@@ -17,7 +17,8 @@ const Header = () => {
       <Container>
         <Row justify="center" align="middle">
           <Col
-            span={6}
+            xs={12}
+            lg={6}
             style={{
               backgroundColor: token.colorSuccess,
               textAlign: "center",
@@ -29,7 +30,7 @@ const Header = () => {
               </Typography.Title>
             </Link>
           </Col>
-          <Col span={17}>
+          <Col xs={11} lg={17}>
             <Menu
               mode="horizontal"
               items={headerMenu}
@@ -41,7 +42,7 @@ const Header = () => {
               }}
             />
           </Col>
-          <Col span={1} align="right">
+          <Col xs={1} lg={1} align="right">
             <Badge
               color={token.colorSuccess}
               style={{ borderColor: token.colorSuccess }}
