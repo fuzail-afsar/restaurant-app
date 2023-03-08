@@ -1,20 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const signinUser = createAsyncThunk(
-  'user/signin',
+  "user/signin",
   async (email, password) => {
     // Signin Functionality
   }
 );
 
 export const createUser = createAsyncThunk(
-  'user/create',
+  "user/create",
   async (email, password) => {
     // Create User Functionality
   }
 );
 
-export const logoutUser = createAsyncThunk('user/logout', async email => {
+export const logoutUser = createAsyncThunk("user/logout", async (email) => {
   // Logout Functionality
 });
 
@@ -24,7 +24,7 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: ({ addCase }) => {
