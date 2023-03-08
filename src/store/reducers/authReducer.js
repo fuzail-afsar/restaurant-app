@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const loginUser = createAsyncThunk(
-  'user/login',
+export const signinUser = createAsyncThunk(
+  'user/signin',
   async (email, password) => {
-    // Login Functionality
+    // Signin Functionality
   }
 );
 
@@ -29,14 +29,14 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: ({ addCase }) => {
     // Login User
-    addCase(loginUser.pending, (state, action) => {
+    addCase(signinUser.pending, (state, action) => {
       state.isLoading = true;
     });
-    addCase(loginUser.fulfilled, (state, action) => {
+    addCase(signinUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isAuthenticated = true;
     });
-    addCase(loginUser.rejected, (state, action) => {
+    addCase(signinUser.rejected, (state, action) => {
       state.isLoading = false;
       state.isAuthenticated = false;
     });
