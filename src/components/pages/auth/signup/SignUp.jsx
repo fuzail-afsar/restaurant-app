@@ -56,7 +56,7 @@ const SignUp = () => {
                     },
                   ]}
                 >
-                  <Input placeholder='Password' />
+                  <Input.Password placeholder='Password' />
                 </Form.Item>
 
                 <Form.Item className='form-item-button'>
