@@ -1,6 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
-import Theme from "./components/UI/Theme";
-import Routes from "./routes/Routes";
+import { BrowserRouter } from 'react-router-dom';
+import Theme from './components/UI/Theme';
+import Routes from './routes/Routes';
 
 const App = () => {
   return (
