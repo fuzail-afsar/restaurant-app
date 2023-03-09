@@ -1,14 +1,24 @@
-import { Button, Col, Form, Input, Row, Typography } from 'antd';
+import { Button, Col, Form, Input, Row, Typography, message } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { createUser } from '../../../../store/reducers/authReducer';
 import { InnerPageBanner } from '../../../common/banner/inner-page-banner/InnerPageBanner';
 import Container from '../../../common/container/Container';
 import './SignUp.css';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { isLoading } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   const createUserHandler = values => {
-    console.log(values);
+    dispatch(createUser(values))
+      .unwrap()
+      .then(() => {
+        navigate('/');
+        message.success('Sign Up Successful');
+      })
+      .catch(err => message.error(err.message));
   };
 
   return (
@@ -66,6 +76,7 @@ const SignUp = () => {
                     }}
                     type='primary'
                     htmlType='submit'
+                    loading={isLoading}
                   >
                     Sign Up
                   </Button>
