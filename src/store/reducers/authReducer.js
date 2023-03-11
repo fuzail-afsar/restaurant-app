@@ -14,6 +14,7 @@ export const signinUser = createAsyncThunk(
 
 export const createUser = createAsyncThunk(
   "user/create",
+
   async ({ email, password }) => {
     return await axios.post("https://dummyjson.com/users/add", {
       email,
@@ -23,7 +24,9 @@ export const createUser = createAsyncThunk(
 );
 
 export const logoutUser = createAsyncThunk("user/logout", async email => {
-  // Logout Functionality
+  async (email, password) => {
+    // Create User Functionality
+  }
 });
 
 export const checkIsUserAuthenticated = createAsyncThunk(

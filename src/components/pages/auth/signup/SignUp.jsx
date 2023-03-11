@@ -11,6 +11,7 @@ const SignUp = () => {
   const { isLoading } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
+
   const createUserHandler = values => {
     dispatch(createUser(values))
       .unwrap()
@@ -77,6 +78,7 @@ const SignUp = () => {
                     type="primary"
                     htmlType="submit"
                     loading={isLoading}
+
                   >
                     Sign Up
                   </Button>
