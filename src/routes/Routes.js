@@ -6,6 +6,7 @@ import SignUp from "../components/pages/auth/signup/SignUp";
 import Cart from "../components/pages/cart/Cart";
 import Checkout from "../components/pages/checkout/Checkout";
 import Home from "../components/pages/home/Home";
+import AdminHome from "../components/pages/Admin/Home/Home";
 
 const Routes = () => {
   const routes = [
@@ -38,6 +39,11 @@ const Routes = () => {
       path: "/account",
       element: <Layout children={<Outlet />} />,
       children: [{ index: true, element: <Account /> }],
+    },
+    {
+      path: "/admin",
+      element: <Layout children={<Outlet />} />,
+      children: [{ index: true, element: <AdminHome /> }],
     },
   ];
   return useRoutes(routes);
