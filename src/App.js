@@ -1,5 +1,5 @@
-import Theme from './components/UI/Theme';
-import Routes from './routes/Routes';
+import Theme from "./components/UI/Theme";
+import Routes from "./routes/Routes";
 
 const App = () => {
   return (

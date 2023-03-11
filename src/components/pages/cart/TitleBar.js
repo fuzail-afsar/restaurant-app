@@ -1,8 +1,8 @@
-import './TitleBar.css';
+import "./TitleBar.css";
 
 const TitleBar = () => {
   return (
-    <ul className='title-bar'>
+    <ul className="title-bar">
       <li>PRODUCT</li>
       <li>PRICE</li>
       <li>QUANTITY</li>

@@ -1,33 +1,33 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const signinUser = createAsyncThunk(
-  'user/signin',
+  "user/signin",
   async ({ email, password }) => {
-    const result = await axios.post('https://dummyjson.com/auth/login', {
-      username: 'kminchelle',
-      password: '0lelplR',
+    const result = await axios.post("https://dummyjson.com/auth/login", {
+      username: "kminchelle",
+      password: "0lelplR",
     });
     return result.data.token;
   }
 );
 
 export const createUser = createAsyncThunk(
-  'user/create',
+  "user/create",
   async ({ email, password }) => {
-    return await axios.post('https://dummyjson.com/users/add', {
+    return await axios.post("https://dummyjson.com/users/add", {
       email,
       password,
     });
   }
 );
 
-export const logoutUser = createAsyncThunk('user/logout', async email => {
+export const logoutUser = createAsyncThunk("user/logout", async email => {
   // Logout Functionality
 });
 
 export const checkIsUserAuthenticated = createAsyncThunk(
-  'user/isAuthenticated',
+  "user/isAuthenticated",
   async () => {}
 );
 
@@ -37,7 +37,7 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: ({ addCase }) => {
