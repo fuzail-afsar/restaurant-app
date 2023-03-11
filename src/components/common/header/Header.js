@@ -3,6 +3,7 @@ import { Col, Row, theme, Typography, Menu, Badge } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import "./Header.css";
+import { useSelector } from "react-redux";
 
 const headerMenu = [
   { label: "Home", key: "" },
@@ -12,6 +13,7 @@ const headerMenu = [
 const Header = () => {
   const { token } = theme.useToken();
   const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart);
   return (
     <header style={{ background: token.colorPrimary }}>
       <Container>
@@ -46,7 +48,7 @@ const Header = () => {
             <Badge
               color={token.colorSuccess}
               style={{ borderColor: token.colorSuccess }}
-              count={5}
+              count={cart.length}
             >
               <HiOutlineShoppingBag
                 style={{ color: token.colorSuccess }}

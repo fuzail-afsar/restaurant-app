@@ -9,8 +9,10 @@ const Product = ({
   toppings,
   price,
   quantity,
-  totalPrice,
   imageUrl,
+  onItemMinusClick,
+  onItemPlusClick,
+  onDeleteItemClick,
 }) => {
   return (
     <div className="product">
@@ -29,17 +31,21 @@ const Product = ({
 
       <div className="product__quantity">
         <div className="product__quantity__actions">
-          <button>-</button>
+          <button onClick={() => onItemMinusClick(id)}>-</button>
           {quantity}
-          <button>+</button>
+          <button onClick={() => onItemPlusClick(id)}>+</button>
         </div>
 
-        <Button type="primary" className="delete-btn">
+        <Button
+          type="primary"
+          onClick={() => onDeleteItemClick(id)}
+          className="delete-btn"
+        >
           <DeleteOutlined />
         </Button>
       </div>
 
-      <div className="product__total-price">${totalPrice}</div>
+      <div className="product__total-price">${quantity * price}</div>
     </div>
   );
 };
