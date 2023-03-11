@@ -3,17 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signinUser } from "../../../../store/reducers/authReducer";
 import { InnerPageBanner } from "../../../common/banner/inner-page-banner/InnerPageBanner";
+import { useCookies } from "react-cookie";
 import "./SignIn.css";
+import { useSetToken } from "../Auth";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch(signinUser);
+  const setToken = useSetToken();
 
   const signInHandler = (values) => {
     dispatch(signinUser(values))
       .unwrap()
-      .then(() => {
+      .then((token) => {
+        setToken(token);
         navigate("/");
         message.success("Login successful");
       })
@@ -39,7 +43,7 @@ const SignIn = () => {
               }}
               onFinish={signInHandler}
             >
-              <Form.Item
+              {/* <Form.Item
                 name="email"
                 rules={[
                   { required: true, message: "Email is required" },
@@ -47,6 +51,19 @@ const SignIn = () => {
                 ]}
               >
                 <Input placeholder="Email" />
+              </Form.Item> */}
+              <Form.Item
+                name="username"
+                rules={[
+                  { required: true, message: "User Name is required" },
+                  { type: "text", message: "Please enter a valid user name" },
+                  {
+                    min: 5,
+                    message: "Username must be minimum 5 characters.",
+                  },
+                ]}
+              >
+                <Input placeholder="User Name" />
               </Form.Item>
 
               <Form.Item
@@ -64,14 +81,7 @@ const SignIn = () => {
               </Form.Item>
 
               <Form.Item className="form-item-button">
-                <Button
-                  style={{
-                    width: "90px",
-                  }}
-                  type="primary"
-                  htmlType="submit"
-                  loading={isLoading}
-                >
+                <Button type="primary" htmlType="submit" loading={isLoading}>
                   Sign In
                 </Button>
               </Form.Item>

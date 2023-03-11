@@ -3,10 +3,12 @@ import dummyJson from "../../api/dummyJson";
 
 export const signinUser = createAsyncThunk(
   "user/signin",
-  async ({ email, password }) => {
+  async ({ username, password }) => {
     const result = await dummyJson.post("auth/login", {
-      username: "kminchelle",
-      password: "0lelplR",
+      // username: "kminchelle",
+      // password: "0lelplR",
+      username,
+      password,
     });
     return result.data.token;
   }
@@ -15,17 +17,16 @@ export const signinUser = createAsyncThunk(
 export const createUser = createAsyncThunk(
   "user/create",
 
-  async ({ email, password }) => {
+  async ({ username, email, password }) => {
     return await dummyJson.post("users/add", {
+      username,
       email,
       password,
     });
   }
 );
 
-export const logoutUser = createAsyncThunk("user/logout", async (email) => {
-  // Create User Functionality
-});
+export const logoutUser = createAsyncThunk("user/logout", async () => {});
 
 export const checkIsUserAuthenticated = createAsyncThunk(
   "user/isAuthenticated",
@@ -40,7 +41,9 @@ const initialState = {
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    signOutUser: (state) => initialState,
+  },
   extraReducers: ({ addCase }) => {
     // Login User
     addCase(signinUser.pending, (state, action) => {
@@ -49,7 +52,7 @@ export const authSlice = createSlice({
     addCase(signinUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isAuthenticated = true;
-      document.cookie = `token=${action.payload}; path=/; secure; SameSite=Lax`;
+      // document.cookie = `token=${action.payload}; path=/; secure; SameSite=Lax`;
     });
     addCase(signinUser.rejected, (state, action) => {
       state.isLoading = false;
@@ -95,3 +98,4 @@ export const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { signOutUser } = authSlice.actions;

@@ -12,6 +12,7 @@ import {
   deleteItem,
   setItemQuantity,
 } from "../../../store/reducers/cartReducer";
+import { useIsLoggedIn } from "../auth/Auth";
 
 // const PRODUCTS = [
 //   {
@@ -70,8 +71,10 @@ const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
-  const checkoutClickHandler = () => navigate("/checkout");
+  const isLoggedIn = useIsLoggedIn();
+  const checkoutClickHandler = () => {
+    isLoggedIn ? navigate("/checkout") : navigate("/signin");
+  };
   const continueShoppingClickHandler = () => navigate("/");
 
   const cartItemMinusClickHandler = (id) => {
