@@ -3,22 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signinUser } from "../../../../store/reducers/authReducer";
 import { InnerPageBanner } from "../../../common/banner/inner-page-banner/InnerPageBanner";
-import "./Signin.css";
+import "./SignIn.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { isLoading } = useSelector(state => state.auth);
+  const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch(signinUser);
 
-
-  const signInHandler = values => {
+  const signInHandler = (values) => {
     dispatch(signinUser(values))
       .unwrap()
       .then(() => {
         navigate("/");
         message.success("Login successful");
       })
-      .catch(err => message.error(err.message));
+      .catch((err) => message.error(err.message));
   };
 
   return (

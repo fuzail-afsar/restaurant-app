@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import dummyJson from "../../api/dummyJson";
 
 export const signinUser = createAsyncThunk(
   "user/signin",
   async ({ email, password }) => {
-    const result = await axios.post("https://dummyjson.com/auth/login", {
+    const result = await dummyJson.post("auth/login", {
       username: "kminchelle",
       password: "0lelplR",
     });
@@ -16,17 +16,15 @@ export const createUser = createAsyncThunk(
   "user/create",
 
   async ({ email, password }) => {
-    return await axios.post("https://dummyjson.com/users/add", {
+    return await dummyJson.post("users/add", {
       email,
       password,
     });
   }
 );
 
-export const logoutUser = createAsyncThunk("user/logout", async email => {
-  async (email, password) => {
-    // Create User Functionality
-  }
+export const logoutUser = createAsyncThunk("user/logout", async (email) => {
+  // Create User Functionality
 });
 
 export const checkIsUserAuthenticated = createAsyncThunk(
