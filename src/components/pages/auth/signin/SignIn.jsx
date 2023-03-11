@@ -1,13 +1,24 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { signinUser } from "../../../../store/reducers/authReducer";
 import { InnerPageBanner } from "../../../common/banner/inner-page-banner/InnerPageBanner";
-import "./SignIn.css";
+import "./Signin.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const { isLoading } = useSelector(state => state.auth);
+  const dispatch = useDispatch(signinUser);
 
-  const signInHandler = (values) => {
-    console.log(values);
+
+  const signInHandler = values => {
+    dispatch(signinUser(values))
+      .unwrap()
+      .then(() => {
+        navigate("/");
+        message.success("Login successful");
+      })
+      .catch(err => message.error(err.message));
   };
 
   return (
@@ -60,6 +71,7 @@ const SignIn = () => {
                   }}
                   type="primary"
                   htmlType="submit"
+                  loading={isLoading}
                 >
                   Sign In
                 </Button>

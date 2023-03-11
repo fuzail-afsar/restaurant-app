@@ -1,18 +1,18 @@
-import { Breadcrumb } from 'antd';
-import { RightOutlined, QuestionCircleFilled } from '@ant-design/icons';
+import { Breadcrumb } from "antd";
+import { RightOutlined, QuestionCircleFilled } from "@ant-design/icons";
 
-import CheckoutForm from './CheckoutForm';
-import CartItem from './CartItem';
+import CheckoutForm from "./CheckoutForm";
+import CartItem from "./CartItem";
 
-import './Checkout.css';
+import "./Checkout.css";
 
 const Checkout = () => {
   return (
-    <div className='checkout'>
-      <div className='checkout__left-section'>
+    <div className="checkout">
+      <div className="checkout__left-section">
         <h2>Foodoliv - Fast Food Store</h2>
 
-        <Breadcrumb separator={<RightOutlined className='icon' />}>
+        <Breadcrumb separator={<RightOutlined className="icon" />}>
           <Breadcrumb.Item>Cart</Breadcrumb.Item>
           <Breadcrumb.Item>Information</Breadcrumb.Item>
           <Breadcrumb.Item>Shipping</Breadcrumb.Item>
@@ -20,24 +20,24 @@ const Checkout = () => {
         </Breadcrumb>
 
         <h4>Contact information</h4>
-        <p className='account-detail'>Fuzail Ahmed (fuzail@mailinter.com)</p>
-        <p className='logout'>Log out</p>
+        <p className="account-detail">Fuzail Ahmed (fuzail@mailinter.com)</p>
+        <p className="logout">Log out</p>
 
         <h3>Shipping address</h3>
         <CheckoutForm />
-        <div className='footer'>
+        <div className="footer">
           All rights reserved Foodoliv - Fast Food Store
         </div>
       </div>
 
-      <div className='checkout__right-section'>
+      <div className="checkout__right-section">
         <CartItem />
         <CartItem />
 
-        <div className='cart-details'>
+        <div className="cart-details">
           <div>
             <span>Subtotal</span>
-            <span className='price'>$930.00</span>
+            <span className="price">$930.00</span>
           </div>
 
           <div>
@@ -47,13 +47,13 @@ const Checkout = () => {
 
           <div>
             <span>
-              Estimated taxes <QuestionCircleFilled className='question-mark' />
+              Estimated taxes <QuestionCircleFilled className="question-mark" />
             </span>
-            <span className='price'>$167.40</span>
+            <span className="price">$167.40</span>
           </div>
         </div>
 
-        <div className='cart-total'>
+        <div className="cart-total">
           <span>Total</span>
           <span>
             <span>USD</span> <span>$1,097.40</span>

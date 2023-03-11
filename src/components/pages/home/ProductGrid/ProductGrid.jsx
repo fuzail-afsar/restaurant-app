@@ -2,6 +2,7 @@ import "./ProductGrid.css";
 import { Col, Row, Typography } from "antd";
 import Container from "../../../common/container/Container";
 import ProductCard from "./ProductCard";
+
 const PRODUCTS = [
   {
     id: 1,
@@ -65,9 +66,9 @@ const ProductGrid = () => {
         </Col>
         <Col span={24}>
           <Row gutter={20}>
-            {PRODUCTS.map((items) => (
-              <Col xs={24} sm={12} md={8} lg={6}>
-                <ProductCard key={items.id} {...items} />
+            {PRODUCTS.map(items => (
+              <Col xs={24} sm={12} md={8} lg={6} key={items.id}>
+                <ProductCard {...items} />
               </Col>
             ))}
           </Row>
