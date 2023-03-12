@@ -8,18 +8,17 @@ import "./SignUp.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { isLoading } = useSelector(state => state.auth);
+  const { isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-
-  const createUserHandler = values => {
+  const createUserHandler = (values) => {
     dispatch(createUser(values))
       .unwrap()
       .then(() => {
-        navigate("/");
+        navigate("/signin");
         message.success("Sign Up Successful");
       })
-      .catch(err => message.error(err.message));
+      .catch((err) => message.error(err.message));
   };
 
   return (
@@ -44,6 +43,19 @@ const SignUp = () => {
                 }}
                 onFinish={createUserHandler}
               >
+                <Form.Item
+                  name="username"
+                  rules={[
+                    { required: true, message: "User Name is required" },
+                    { type: "text", message: "Please enter a valid user name" },
+                    {
+                      min: 5,
+                      message: "Username must be minimum 5 characters.",
+                    },
+                  ]}
+                >
+                  <Input placeholder="User Name" />
+                </Form.Item>
                 <Form.Item
                   name="email"
                   rules={[
@@ -71,15 +83,7 @@ const SignUp = () => {
                 </Form.Item>
 
                 <Form.Item className="form-item-button">
-                  <Button
-                    style={{
-                      width: "90px",
-                    }}
-                    type="primary"
-                    htmlType="submit"
-                    loading={isLoading}
-
-                  >
+                  <Button type="primary" htmlType="submit" loading={isLoading}>
                     Sign Up
                   </Button>
                 </Form.Item>

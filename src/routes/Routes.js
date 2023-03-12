@@ -1,9 +1,14 @@
 import { Outlet, useRoutes } from "react-router-dom";
 import Layout from "../components/common/layout/Layout";
 import Account from "../components/pages/account/Account";
+
 import AddProducts from "../components/pages/admin/AddProducts/AddProducts";
 import Admin from "../components/pages/admin/mainAdmin/Admin";
 import ViewProducts from "../components/pages/admin/ViewProducts/ViewProducts";
+
+import NonRequireAuth from "../components/pages/auth/NonRequireAuth";
+import RequireAuth from "../components/pages/auth/RequireAuth";
+
 import SignIn from "../components/pages/auth/signin/SignIn";
 import SignUp from "../components/pages/auth/signup/SignUp";
 import Cart from "../components/pages/cart/Cart";
@@ -20,12 +25,30 @@ const Routes = () => {
     {
       path: "/signin",
       element: <Layout children={<Outlet />} />,
-      children: [{ index: true, element: <SignIn /> }],
+      children: [
+        {
+          index: true,
+          element: (
+            <NonRequireAuth>
+              <SignIn />
+            </NonRequireAuth>
+          ),
+        },
+      ],
     },
     {
       path: "/signup",
       element: <Layout children={<Outlet />} />,
-      children: [{ index: true, element: <SignUp /> }],
+      children: [
+        {
+          index: true,
+          element: (
+            <NonRequireAuth>
+              <SignUp />
+            </NonRequireAuth>
+          ),
+        },
+      ],
     },
     {
       path: "/cart",
@@ -35,12 +58,30 @@ const Routes = () => {
     {
       path: "/checkout",
       element: <Layout children={<Outlet />} />,
-      children: [{ index: true, element: <Checkout /> }],
+      children: [
+        {
+          index: true,
+          element: (
+            <RequireAuth>
+              <Checkout />
+            </RequireAuth>
+          ),
+        },
+      ],
     },
     {
       path: "/account",
       element: <Layout children={<Outlet />} />,
-      children: [{ index: true, element: <Account /> }],
+      children: [
+        {
+          index: true,
+          element: (
+            <RequireAuth>
+              <Account />
+            </RequireAuth>
+          ),
+        },
+      ],
     },
 
     {

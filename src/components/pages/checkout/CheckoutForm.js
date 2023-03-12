@@ -1,12 +1,29 @@
-import { Button, Form, Input, Select } from "antd";
-import Link from "antd/es/typography/Link";
+import { Button, Form, Input, Modal, Select } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 
 import "./CheckoutForm.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { emptyCart } from "../../../store/reducers/cartReducer";
 
 const CheckoutForm = () => {
-  const formSubmitHandler = values => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const success = () => {
+    Modal.success({
+      title: "Order Placed!",
+      content: "Your order has been successfully placed",
+      onOk() {
+        dispatch(emptyCart());
+        navigate("/");
+      },
+    });
+  };
+
+  const formSubmitHandler = (values) => {
     console.log(values);
+    success();
   };
 
   return (
@@ -53,7 +70,7 @@ const CheckoutForm = () => {
       </div>
 
       <div className="actions">
-        <Link className="link">
+        <Link className="link" to="/cart">
           <LeftOutlined /> Return to cart
         </Link>
 
