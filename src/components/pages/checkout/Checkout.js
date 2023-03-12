@@ -5,12 +5,17 @@ import CheckoutForm from "./CheckoutForm";
 import CartItem from "./CartItem";
 
 import "./Checkout.css";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSubTotal } from "../../../store/reducers/cartReducer";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state);
+
   return (
     <div className="checkout">
       <div className="checkout__left-section">
-        <h2>Foodoliv - Fast Food Store</h2>
+        {/* <h2>Foodoliv - Fast Food Store</h2> */}
 
         <Breadcrumb separator={<RightOutlined className="icon" />}>
           <Breadcrumb.Item>Cart</Breadcrumb.Item>
@@ -19,25 +24,26 @@ const Checkout = () => {
           <Breadcrumb.Item>Payment</Breadcrumb.Item>
         </Breadcrumb>
 
-        <h4>Contact information</h4>
+        {/* <h4>Contact information</h4>
         <p className="account-detail">Fuzail Ahmed (fuzail@mailinter.com)</p>
-        <p className="logout">Log out</p>
+        <p className="logout">Log out</p> */}
 
         <h3>Shipping address</h3>
         <CheckoutForm />
-        <div className="footer">
+        {/* <div className="footer">
           All rights reserved Foodoliv - Fast Food Store
-        </div>
+        </div> */}
       </div>
 
       <div className="checkout__right-section">
-        <CartItem />
-        <CartItem />
+        {cart.map((cartItem) => (
+          <CartItem {...cartItem} />
+        ))}
 
         <div className="cart-details">
           <div>
             <span>Subtotal</span>
-            <span className="price">$930.00</span>
+            <span className="price">${dispatch(cartSubTotal())}</span>
           </div>
 
           <div>

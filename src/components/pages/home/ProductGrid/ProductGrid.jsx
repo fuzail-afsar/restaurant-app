@@ -1,5 +1,5 @@
 import "./ProductGrid.css";
-import { Col, Result, Row, Spin, Typography } from "antd";
+import { Col, Empty, Result, Row, Spin, Typography } from "antd";
 import Container from "../../../common/container/Container";
 import ProductCard from "./ProductCard/ProductCard";
 import { useEffect, useState } from "react";
@@ -41,7 +41,7 @@ const ProductGrid = () => {
   };
 
   const getJsx = () => {
-    if (products && products.length) {
+    if (products.length > 0) {
       return (
         <Row gutter={[20, 30]}>
           {products.map(
@@ -62,6 +62,8 @@ const ProductGrid = () => {
           )}
         </Row>
       );
+    } else if (!products.length) {
+      <Empty />;
     } else {
       return <Result status="warning" title={error} />;
     }
@@ -73,9 +75,12 @@ const ProductGrid = () => {
         <Col span={24}>
           <Title level={2}>Products</Title>
         </Col>
-        <Spin spinning={isLoading}>
-          <Col span={24}>{getJsx()}</Col>
-        </Spin>
+
+        <Col span={24}>
+          <Spin style={{ position: "absolute" }} spinning={isLoading}>
+            {getJsx()}
+          </Spin>
+        </Col>
       </Row>
     </Container>
   );

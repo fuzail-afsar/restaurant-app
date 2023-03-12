@@ -4,6 +4,12 @@ const verifyId = (cartItem, id) => cartItem.id === id;
 
 const initialState = [];
 
+export const cartSubTotal = () => (_, getState) => {
+  const { cart } = getState();
+
+  return cart.reduce((acc, { price, quantity }) => acc + price * quantity, 0);
+};
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -41,7 +47,9 @@ export const cartSlice = createSlice({
         }
       }
     },
+    emptyCart: () => initialState,
   },
 });
-export const { addItem, deleteItem, setItemQuantity } = cartSlice.actions;
+export const { addItem, deleteItem, setItemQuantity, emptyCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

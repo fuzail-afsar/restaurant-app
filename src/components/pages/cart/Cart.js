@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 import Container from "../../common/container/Container";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  cartSubTotal,
   deleteItem,
   setItemQuantity,
 } from "../../../store/reducers/cartReducer";
@@ -135,7 +136,7 @@ const Cart = () => {
 
                 <div className="right">
                   <h4>
-                    Subtotal <span>$930.00</span>
+                    Subtotal <span>${dispatch(cartSubTotal())}</span>
                   </h4>
 
                   <p>Taxes and shipping calculated at cart</p>
