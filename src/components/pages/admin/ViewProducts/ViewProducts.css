@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.viewProductsMain {
+  display: flex;
+  height: fit-content;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  /* border: 1px solid red; */
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.viewProductsMain::-webkit-scrollbar {
+  width: 4px;
+}
+
+.viewProductsMain::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #d8d8d838;
+}
+
+.viewProductsMain::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d8d8d8;
+}
